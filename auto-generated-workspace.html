@@ -14,6 +14,9 @@
     <script type='text/javascript' src="//i2dcui.appspot.com/js/require.js"></script>
 
     <style type='text/css'>
+#com-chilipeppr-widget-xyz-body .com-chilipeppr-xyz-label-well, #com-chilipeppr-widget-xyz-ftr .btn {
+    background-color: #222222 !important;
+}
 .zipwhip-button {
     line-height:0px;
     padding: 1px 2px;
@@ -1257,7 +1260,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             
             // 3D Viewer
             // http://jsfiddle.net/chilipeppr/y3HRF
-            chilipeppr.load(
+            /* chilipeppr.load(
                 "#com-chilipeppr-3dviewer",
                 //"http://fiddle.jshell.net/chilipeppr/y3HRF/show/light/",
                 "http://raw.githubusercontent.com/chilipeppr/widget-3dviewer/master/auto-generated-widget.html",
@@ -1301,7 +1304,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                         }
                     );
                 }
-            ); //End 3D Viewer
+            ); //End 3D Viewer */
 
             // Gcode List v3
             // OLD v2 http://jsfiddle.net/chilipeppr/F2Qn3/
@@ -1377,6 +1380,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             
                     function (xyz) {
                         xyz.init();
+                        xyz.toggleWcs();
                     });
                 }
             ); //End XYZ
@@ -1441,9 +1445,9 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-3 widgetx padrt">
+                    <div class="col-xs-6 widgetx padrt">
                         <!-- 3D Viewer. Must be loaded at top to get z-orders correct -->
-                        <div id="com-chilipeppr-3dviewer">Load 3D Viewport Here</div>
+                        <div id="com-chilipeppr-3dviewer"></div>
                         <!-- Workspace Hdr -->
                         <div id="com-chilipeppr-ws-gcode-hdr" class="com-chilipeppr-ws-hdr zhigh well">
                             
@@ -1537,7 +1541,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                             <div id="com-chilipeppr-3dviewer-controlpanel" style=""></div>
                         </div>
                     </div>
-                    <div class="col-xs-3 nopadding">
+                    <div class="col-xs-6 nopadding">
                         <!-- XYZ -->
                         <div id="com-chilipeppr-xyz" class="">Load XYZ Here</div>
                         <!-- Tinyg -->

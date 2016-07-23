@@ -1043,7 +1043,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             
             // 3D Viewer
             // http://jsfiddle.net/chilipeppr/y3HRF
-            chilipeppr.load(
+            /* chilipeppr.load(
                 "#com-chilipeppr-3dviewer",
                 //"http://fiddle.jshell.net/chilipeppr/y3HRF/show/light/",
                 "http://raw.githubusercontent.com/chilipeppr/widget-3dviewer/master/auto-generated-widget.html",
@@ -1087,7 +1087,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                         }
                     );
                 }
-            ); //End 3D Viewer
+            ); //End 3D Viewer */
 
             // Gcode List v3
             // OLD v2 http://jsfiddle.net/chilipeppr/F2Qn3/
@@ -1163,6 +1163,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             
                     function (xyz) {
                         xyz.init();
+                        xyz.toggleWcs();
                     });
                 }
             ); //End XYZ
