@@ -286,6 +286,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
          * and inits them.
          */
         init: function() {
+            $('link[href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"]').attr('href','//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css');
 
             // Most workspaces will instantiate the Serial Port JSON Server widget
             this.loadSpjsWidget();
