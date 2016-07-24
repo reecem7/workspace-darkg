@@ -45,7 +45,7 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-6 widgetx padrt">
+                    <div class="col-xs-3 widgetx padrt tabmodecol">
                         <!-- 3D Viewer. Must be loaded at top to get z-orders correct -->
                         <div id="com-chilipeppr-3dviewer"></div>
                         <!-- Workspace Hdr -->
@@ -84,6 +84,8 @@
 
                                 <button type="button" class="btn btn-xs btn-default touchplate-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Use a touch plate to easily figure out your Z zero of your workpiece and set it." data-trigger="hover"
                                 data-delay="100">Touch Plate</button>
+                                <button type="button" class="btn btn-xs btn-default tabmode-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Hide 3d viewer." data-trigger="hover" data-delay="100">Tablet Mode</button>
+
 
                                 <button type="button" class="btn btn-xs btn-default programmer-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Program your Arduino or Atmel chip directly from ChiliPeppr." data-trigger="hover" data-delay="100">Arduino / Atmel Firmware Uploader</button>
                                 <button type="button" class="btn btn-xs btn-default svg2gcode-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Import an SVG file to Gcode" data-trigger="hover" data-delay="100">SVG Import</button>
@@ -141,7 +143,7 @@
                             <div id="com-chilipeppr-3dviewer-controlpanel" style=""></div>
                         </div>
                     </div>
-                    <div class="col-xs-6 nopadding">
+                    <div class="col-xs-3 nopadding tabmodecol">
                         <!-- XYZ -->
                         <div id="com-chilipeppr-xyz" class="">Load XYZ Here</div>
                         <!-- Tinyg -->

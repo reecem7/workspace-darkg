@@ -70,6 +70,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
          */
         init: function() {
             $('link[href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"]').attr('href','//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css');
+            this.loadTabletMode();
 
             // Most workspaces will instantiate the Serial Port JSON Server widget
             this.loadSpjsWidget();
@@ -219,6 +220,24 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                     });
                 }
             );
+        },
+        
+        loadTabletMode: function(callback) {
+            $('#com-chilipeppr-ws-gcode-hdr .tabmode-button').click(function (evt) {
+                console.log("hide/unhide 3d");
+
+                if ($('#com-chilipeppr-3dviewer').hasClass('hidden')) {
+                    $('#com-chilipeppr-3dviewer').removeClass('hidden');
+                    $('#com-chilipeppr-3dviewer-controlpanel').removeClass('hidden');
+                    $('.tabmodecol').removeClass('col-xs-6');
+                    $('.tabmodecol').addClass('col-xs-3');
+                } else {
+                    $('#com-chilipeppr-3dviewer').addClass('hidden');
+                    $('#com-chilipeppr-3dviewer-controlpanel').addClass('hidden');
+                    $('.tabmodecol').removeClass('col-xs-3');
+                    $('.tabmodecol').addClass('col-xs-6');
+                }
+            });
         },
 
 
@@ -1044,10 +1063,10 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             
             // 3D Viewer
             // http://jsfiddle.net/chilipeppr/y3HRF
-            /* chilipeppr.load(
+            chilipeppr.load(
                 "#com-chilipeppr-3dviewer",
                 //"http://fiddle.jshell.net/chilipeppr/y3HRF/show/light/",
-                "http://raw.githubusercontent.com/chilipeppr/widget-3dviewer/master/auto-generated-widget.html",
+                "http://raw.githubusercontent.com/voodoomm/widget-3dviewer/master/auto-generated-widget.html",
     
                 function() {
                     console.log("got callback done loading 3d");
@@ -1088,7 +1107,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                         }
                     );
                 }
-            ); //End 3D Viewer */
+            ); //End 3D Viewer
 
             // Gcode List v3
             // OLD v2 http://jsfiddle.net/chilipeppr/F2Qn3/

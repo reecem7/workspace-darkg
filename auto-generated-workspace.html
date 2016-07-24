@@ -29,6 +29,9 @@
 #com-chilipeppr-ws-menu .btn {
     margin-top: 5px;
 }
+#com-chilipeppr-ws-gcode-hdr .tabmode-button {
+
+}
 .zipwhip-button {
     line-height:0px;
     padding: 1px 2px;
@@ -299,6 +302,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
          */
         init: function() {
             $('link[href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"]').attr('href','//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css');
+            this.loadTabletMode();
 
             // Most workspaces will instantiate the Serial Port JSON Server widget
             this.loadSpjsWidget();
@@ -448,6 +452,24 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                     });
                 }
             );
+        },
+        
+        loadTabletMode: function(callback) {
+            $('#com-chilipeppr-ws-gcode-hdr .tabmode-button').click(function (evt) {
+                console.log("hide/unhide 3d");
+
+                if ($('#com-chilipeppr-3dviewer').hasClass('hidden')) {
+                    $('#com-chilipeppr-3dviewer').removeClass('hidden');
+                    $('#com-chilipeppr-3dviewer-controlpanel').removeClass('hidden');
+                    $('.tabmodecol').removeClass('col-xs-6');
+                    $('.tabmodecol').addClass('col-xs-3');
+                } else {
+                    $('#com-chilipeppr-3dviewer').addClass('hidden');
+                    $('#com-chilipeppr-3dviewer-controlpanel').addClass('hidden');
+                    $('.tabmodecol').removeClass('col-xs-3');
+                    $('.tabmodecol').addClass('col-xs-6');
+                }
+            });
         },
 
 
@@ -1273,10 +1295,10 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             
             // 3D Viewer
             // http://jsfiddle.net/chilipeppr/y3HRF
-            /* chilipeppr.load(
+            chilipeppr.load(
                 "#com-chilipeppr-3dviewer",
                 //"http://fiddle.jshell.net/chilipeppr/y3HRF/show/light/",
-                "http://raw.githubusercontent.com/chilipeppr/widget-3dviewer/master/auto-generated-widget.html",
+                "http://raw.githubusercontent.com/voodoomm/widget-3dviewer/master/auto-generated-widget.html",
     
                 function() {
                     console.log("got callback done loading 3d");
@@ -1317,7 +1339,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                         }
                     );
                 }
-            ); //End 3D Viewer */
+            ); //End 3D Viewer
 
             // Gcode List v3
             // OLD v2 http://jsfiddle.net/chilipeppr/F2Qn3/
@@ -1458,7 +1480,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-6 widgetx padrt">
+                    <div class="col-xs-3 widgetx padrt tabmodecol">
                         <!-- 3D Viewer. Must be loaded at top to get z-orders correct -->
                         <div id="com-chilipeppr-3dviewer"></div>
                         <!-- Workspace Hdr -->
@@ -1497,6 +1519,8 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
 
                                 <button type="button" class="btn btn-xs btn-default touchplate-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Use a touch plate to easily figure out your Z zero of your workpiece and set it." data-trigger="hover"
                                 data-delay="100">Touch Plate</button>
+                                <button type="button" class="btn btn-xs btn-default tabmode-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Hide 3d viewer." data-trigger="hover" data-delay="100">Tablet Mode</button>
+
 
                                 <button type="button" class="btn btn-xs btn-default programmer-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Program your Arduino or Atmel chip directly from ChiliPeppr." data-trigger="hover" data-delay="100">Arduino / Atmel Firmware Uploader</button>
                                 <button type="button" class="btn btn-xs btn-default svg2gcode-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Import an SVG file to Gcode" data-trigger="hover" data-delay="100">SVG Import</button>
@@ -1554,7 +1578,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                             <div id="com-chilipeppr-3dviewer-controlpanel" style=""></div>
                         </div>
                     </div>
-                    <div class="col-xs-6 nopadding">
+                    <div class="col-xs-3 nopadding tabmodecol">
                         <!-- XYZ -->
                         <div id="com-chilipeppr-xyz" class="">Load XYZ Here</div>
                         <!-- Tinyg -->
