@@ -16,6 +16,18 @@
 #com-chilipeppr-ws-gcode-hdr .tabmode-button {
 
 }
+::-webkit-scrollbar {
+    width: 14px;
+}
+ 
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: #333333;
+    border-radius: 5px;
+}
 .zipwhip-button {
     line-height:0px;
     padding: 1px 2px;
