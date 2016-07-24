@@ -1,6 +1,9 @@
 #com-chilipeppr-widget-xyz-body .com-chilipeppr-xyz-label-well, #com-chilipeppr-widget-xyz-ftr .btn {
     background-color: #222222 !important;
 }
+.navbar-brand.main-brand>img {
+    display: inline;
+}
 .zipwhip-button {
     line-height:0px;
     padding: 1px 2px;
