@@ -317,6 +317,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
          */
         init: function() {
             $('link[href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"]').attr('href','//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css');
+            $('#com-chilipeppr-ws-gcode-hdr>span').addClass('text-primary');
             this.loadTabletMode();
 
             // Most workspaces will instantiate the Serial Port JSON Server widget
@@ -340,8 +341,6 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             // the height of the browser window. You could turn this off and
             // just set widget min-height in CSS instead
             this.setupResize();
-            
-            $('.panel-title').addClass('text-primary');
             
             setTimeout(function() {
                 $(window).trigger('resize');
