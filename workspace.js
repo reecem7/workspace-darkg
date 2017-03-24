@@ -1016,6 +1016,75 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
             this.touchPlateObj.init();
             //End Touch Plate
 
+            // Super Touch Plate
+            // http://raw.githubusercontent.com/PyroAVR/widget-super-touchplate/master/auto-generated-widget.html
+            // Dynamically load, i.e. wait til user clicks on the button first time.
+            this.superTouchPlateObj = function() {
+                return {
+                superTouchPlateBtn: null,
+                superTouchPlateDiv: null,
+                superTouchPlateInstance: null,
+                init: function() {
+                    this.superTouchPlateBtn = $('#com-chilipeppr-ws-menu .superTouchplate-button');
+                    this.superTouchPlateDiv = $('#com-chilipeppr-ws-superTouchplate');
+                    this.setupBtn();
+                    console.log("done instantiating superTouchPlate add-on widget");
+                },
+                setupBtn: function() {
+                    this.superTouchPlateBtn.click(this.togglesuperTouchPlate.bind(this));
+                },
+                togglesuperTouchPlate: function() {
+                    if (this.superTouchPlateDiv.hasClass("hidden")) {
+                        // unhide
+                        this.showsuperTouchPlate();
+                    }
+                    else {
+                        this.hidesuperTouchPlate();
+                    }
+                },
+                showsuperTouchPlate: function(callback) {
+                    this.superTouchPlateDiv.removeClass("hidden");
+                    this.superTouchPlateBtn.addClass("active");
+
+                    // see if instantiated already
+                    // if so, just activate
+                    if (this.superTouchPlateInstance != null) {
+                        this.superTouchPlateInstance.activateWidget();
+                        if (callback) callback();
+                    }
+                    else {
+                        // otherwise, dynamic load
+                        var that = this;
+                        chilipeppr.load(
+                            "#com-chilipeppr-ws-superTouchplate",
+                            "http://raw.githubusercontent.com/PyroAVR/widget-super-touchplate/master/auto-generated-widget.html",
+                            // "http://raw.githubusercontent.com/PyroAVR/widget-super-touchplate/tabs/auto-generated-widget.html",
+                            function() {
+                                require(["inline:com-chilipeppr-widget-super-touchplate"], function(superTouchPlate) {
+                                    that.superTouchPlateInstance = superTouchPlate;
+                                    console.log("superTouchPlate instantiated. superTouchPlateInstance:", that.superTouchPlateInstance);
+                                    that.superTouchPlateInstance.init();
+                                    //eagleInstance.activateWidget();
+                                    if (callback) callback();
+                                });
+                            }
+                        );
+                    }
+                    $(window).trigger('resize');
+                },
+                hidesuperTouchPlate: function() {
+                    this.superTouchPlateDiv.addClass("hidden");
+                    this.superTouchPlateBtn.removeClass("active");
+                    if (this.superTouchPlateInstance != null) {
+                        this.superTouchPlateInstance.unactivateWidget();
+                    }
+                    $(window).trigger('resize');
+                },
+                }
+            }();
+            this.superTouchPlateObj.init();
+            //End Super Touch Plate
+            
             // Arduino / Atmel Firmware Programmer
             // FIDDLE http://jsfiddle.net/chilipeppr/qcduvhkh/11/
             chilipeppr.load(
@@ -1211,6 +1280,47 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                 }
             ); //End TinyG
 
+            // Cayenn Widget
+            chilipeppr.load(
+              "#com-chilipeppr-ws-cayenn",
+              "http://raw.githubusercontent.com/chilipeppr/widget-cayenn/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetCayenn
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-cayenn"], // the id you gave your widget
+                  function(myObjWidgetCayenn) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / Cayenn just got loaded.", myObjWidgetCayenn);
+                    myObjWidgetCayenn.init();
+                    
+                    // this widget has a lot of modals that pop up whenever, so we need to make sure the parent div is
+                    // not hidden. instead we'll hide the exact widget because the modals are outside the div of the widget
+                    $('#com-chilipeppr-ws-cayenn').removeClass("hidden");
+                    
+                    var btn = $('#com-chilipeppr-ws-menu .cayenn-button');
+                    var div = $('#com-chilipeppr-widget-cayenn');
+                    div.addClass("hidden");
+                    btn.click(function() {
+                        if (div.hasClass("hidden")) {
+                            // show widget
+                            div.removeClass("hidden");
+                            btn.addClass("active");
+                        } else {
+                            // hide widget
+                            div.addClass("hidden");
+                            btn.removeClass("active");
+                        }
+                        setTimeout(function() {
+                            $(window).trigger('resize');
+                        }, 200);
+                    });
+                    
+                  }
+                );
+              }
+            );
+
             // WebRTC Client com-chilipeppr-webrtcclient
             /*
             chilipeppr.load(
@@ -1225,6 +1335,27 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                     webrtcclient.init();
                 });
             }); //End WebRTC Client
+            */
+
+            /* For testing. Load RPM Sensor */
+            // com-chilipeppr-ws-rpmsensor
+            /*
+            chilipeppr.load(
+              "#com-chilipeppr-ws-rpmsensor",
+              "http://raw.githubusercontent.com/chilipeppr/widget-rpmsensor/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetRpmsensor
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-rpmsensor"], // the id you gave your widget
+                  function(myObjWidgetRpmsensor) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / Template just got loaded.", myObjWidgetRpmsensor);
+                    myObjWidgetRpmsensor.init();
+                  }
+                );
+              }
+            );
             */
 
         },
