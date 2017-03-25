@@ -224,6 +224,8 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
         },
         
         loadTabletMode: function(callback) {
+            $('#com-chilipeppr-3dviewer').parent().closest('div').addClass('tabmodecol');
+            $('#com-chilipeppr-xyz').parent().closest('div').addClass('tabmodecol');
             $('#com-chilipeppr-ws-gcode-hdr .tabmode-button').click(function (evt) {
                 console.log("hide/unhide 3d");
 
