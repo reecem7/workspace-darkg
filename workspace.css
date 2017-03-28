@@ -286,3 +286,9 @@ body.hover {
 .com-chilipeppr-widget-gcodeviewer-coords {
     background: black !important;
 }
+.com-chilipeppr-widget-gcodeviewer-coords-start, .com-chilipeppr-widget-gcodeviewer-coords-end {
+    background-color: #2a9fd6 !important;
+}
+.com-chilipeppr-widget-gcodeviewer-coords .coords-axis {
+    background-color: #9933cc !important;
+}
