@@ -285,5 +285,5 @@ body.hover {
 }
 
 .com-chilipeppr-widget-gcodeviewer-coords {
-    background: black;
+    background: black !important;
 }
