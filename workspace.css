@@ -210,7 +210,7 @@ body.hover {
     background-color: transparent;
 }
 #com-chilipeppr-ws-gcode-hdr {
-    background-color: #232323
+    background-color: #dd02d2  /*og #232323*/
 }
 #com-chilipeppr-ws-menu .btn {
     margin-top: 5px;
