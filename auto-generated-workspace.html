@@ -395,7 +395,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             // Most workspaces will instantiate the Serial Port Console widget
             this.loadConsoleWidget();
             
-          //  this.loadwebrtcclientWidget();
+            this.loadwebrtcclientWidget();
             // This is a huge method that was built from the original jsfiddle workspace
             // we should technically put each widget in its own method for loading
             this.loadWidgets();
@@ -482,6 +482,29 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
+        /*
+          loadCameraWidget: function(callback) {
+
+            var that = this;
+            chilipeppr.load(
+                "com-chilipeppr-widget-camera-instance",
+                  "http://raw.githubusercontent.com/chilipeppr/widget-cam/master/auto-generated-widget.html",
+                  function() {
+                    // Callback after widget loaded into #myDivWidgetCam
+                    // Now use require.js to get reference to instantiated widget
+                    cprequire(
+                      ["inline:com-chilipeppr-widget-cam"], // the id you gave your widget
+                      function(myObjWidgetCam) {
+                        // Callback that is passed reference to the newly loaded widget
+                        console.log("Widget / Cam just got loaded.", myObjWidgetCam);
+                        myObjWidgetCam.init();
+                      }
+                    );
+                  }
+                );
+           }, 
+        */
+        
         /**
          * Load the Console widget via chilipeppr.load()
          */
@@ -1653,9 +1676,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 function (webrtcclient) {
                     webrtcclient.init();
                 });
-            }); //End WebRTC Client
+            }
+        ); 
+        //End WebRTC Client
             
-
+          
             /* For testing. Load RPM Sensor */
             // com-chilipeppr-ws-rpmsensor
             /*
@@ -1838,6 +1863,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         <div id="com-chilipeppr-tinyg" class="">Load TinyG Here</div>
                         <!-- WebRTC Client -->
                         <div id="com-chilipeppr-webrtcclient" class="">Load WebRTC Client Here</div>
+                        
+                        <div id="com-chilipeppr-widget-camera-instance">
+                        <p class="sample">Camera widget goes here</p>
+                    </div>
+                        
                         <!-- Serial Port Selector -->
                         <div id="com-chilipeppr-widget-spjs-instance" class="">Load Serial Port Selector Here</div>
                     </div>
