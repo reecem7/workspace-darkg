@@ -175,13 +175,13 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
 
             var that = this;
             chilipeppr.load(
-                "com-chilipeppr-widget-camera-instance",
+                "#com-chilipeppr-widget-camera-instance",
                   "http://raw.githubusercontent.com/chilipeppr/widget-cam/master/auto-generated-widget.html",
                   function() {
                     // Callback after widget loaded into #myDivWidgetCam
                     // Now use require.js to get reference to instantiated widget
                     cprequire(
-                      ["inline:com-chilipeppr-widget-cam"], // the id you gave your widget
+                      ["inline:com-chilipeppr-widget-camera"], // the id you gave your widget
                       function(myObjWidgetCam) {
                         // Callback that is passed reference to the newly loaded widget
                         console.log("Widget / Cam just got loaded.", myObjWidgetCam);
@@ -1351,7 +1351,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             );
 
             // WebRTC Client com-chilipeppr-webrtcclient
-            
+            /*
             chilipeppr.load(
                 "com-chilipeppr-webrtcclient",
                 "http://fiddle.jshell.net/chilipeppr/qWj4f/show/light/",
@@ -1364,7 +1364,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     webrtcclient.init();
                 });
             }
-        ); 
+        ); */
         //End WebRTC Client
             
           
