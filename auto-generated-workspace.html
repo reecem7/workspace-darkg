@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 
-    <title>Workspace / TinyG / Darkness</title>
+    <title>Workspace / darkG </title>
 
     <!-- ChiliPeppr is based on bootstrap CSS. -->
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css">
@@ -314,7 +314,7 @@ body.hover {
     <script type='text/javascript'>
     //<![CDATA[
 /* global cpdefine chilipeppr cprequire */
-cprequire_test(["inline:com-chilipeppr-workspace-tinyg"], function(ws) {
+cprequire_test(["inline:com-chilipeppr-workspace-darkg"], function(ws) {
 
     console.log("initting workspace");
 
@@ -342,24 +342,24 @@ cprequire_test(["inline:com-chilipeppr-workspace-tinyg"], function(ws) {
     ws.init();
 
     // Do some niceties for testing like margins on widget and title for browser
-    $('title').html("Tinyg Workspace");
+    $('title').html("darkG Workspace");
     $('body').css('padding', '10px');
 
 } /*end_test*/ );
 
 // This is the main definition of your widget. Give it a unique name.
-cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function() {
+cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function() {
     return {
         /**
          * The ID of the widget. You must define this and make it unique.
          */
-        id: "com-chilipeppr-workspace-tinyg", // Make the id the same as the cpdefine id
-        name: "Workspace / TinyG / Darkness", // The descriptive name of your widget.
-        desc: `This is a workspace for ChiliPeppr's Hardware Fiddle. It is geared towards CNC machines using TinyG.  I've added a dark theme based on bootswatch cyborg by Thomas Park and a tablet mode that can be accessed via the main workspace menu.  Try it at <a href="http://chilipeppr.com/darkness">chilipeppr.com/darkness</a>`,
-        url: "http://raw.githubusercontent.com/voodoomm/workspace-tinyg-darkness/master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
-        fiddleurl: "http://ide.c9.io/voodoomm/workspace-tinyg-darkness", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
-        githuburl: "http://github.com/voodoomm/workspace-tinyg-darkness", // The backing github repo
-        testurl: "http://workspace-tinyg-darkness-voodoomm.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
+        id: "com-chilipeppr-workspace-darkg", // Make the id the same as the cpdefine id
+        name: "Workspace / darkG ", // The descriptive name of your widget.
+        desc: `This is a workspace for ChiliPeppr's Hardware Fiddle.`,
+        url: "http://raw.githubusercontent.com/reecem7/workspace-darkg/master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
+        fiddleurl: "http://ide.c9.io/reecem7/workspace-darkg", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
+        githuburl: "http://github.com/reecem7/workspace-darkg", // The backing github repo
+        testurl: "http://workspace-darkg-reecem7.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
 
         foreignSubscribe: {
             "/com-chilipeppr-elem-dragdrop/ondragover": "The Chilipeppr drag drop element will publish on channel /com-chilipeppr-elem-dragdrop/ondropped when a file is dropped so we subscribe to it so we can load a Gcode file when the user drags it onto the browser. It also adds a hover class to the bound DOM elem so we can add a CSS to hilite on hover",
@@ -1690,7 +1690,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
     <div id="com-chilipeppr-widget-flash-instance"></div>
     <!--not sure which version to keep-->
 
-    <div id="com-chilipeppr-workspace-tinyg" class="xhidden">
+    <div id="com-chilipeppr-workspace-darkg" class="xhidden">
         <div id="com-chilipeppr-ws-gcode-wrapper" class="dropArea">
             <div id="com-chilipeppr-ws-gcode-dragdropoverlay" class="hidden">
                 <div class="well">Drag and Drop Gcode Files Onto Browser Window</div>
@@ -1703,7 +1703,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
                         <!-- Workspace Hdr -->
                         <div id="com-chilipeppr-ws-gcode-hdr" class="com-chilipeppr-ws-hdr zhigh well">
                             
-                            <span class="workspace-title">Workspace TinyG</span>
+                            <span class="workspace-title">workspace-darkG</span>
                             
                             <div id="com-chilipeppr-ws-menu" class="">
                                 
@@ -1845,7 +1845,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg", ["chilipeppr_ready"], function
     </div>
 
     <!-- Keep this div hidden so it can be cloned and used by the Javascript -->
-    <div id="com-chilipeppr-workspace-tinyg-billboard" class="hidden">
+    <div id="com-chilipeppr-workspace-darkg-billboard" class="hidden">
         <div class="billboard-content">
             <h4 class="billboard-title" style="">TinyG Workspace</h4>
 
