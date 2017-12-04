@@ -397,7 +397,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             
             //this.loadwebrtcclientWidget();
             
-           // this.loadCameraWidget();
+            this.loadCameraWidget();
             
             // This is a huge method that was built from the original jsfiddle workspace
             // we should technically put each widget in its own method for loading
@@ -487,6 +487,26 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
         },
         
         
+        loadCameraWidget: function(callback) {
+
+            var that = this;
+            chilipeppr.load(
+                "com-chilipeppr-widget-camera-instance",
+                  "http://raw.githubusercontent.com/chilipeppr/widget-cam/master/auto-generated-widget.html",
+                  function() {
+                    // Callback after widget loaded into #myDivWidgetCam
+                    // Now use require.js to get reference to instantiated widget
+                    cprequire(
+                      ["inline:com-chilipeppr-widget-cam"], // the id you gave your widget
+                      function(myObjWidgetCam) {
+                        // Callback that is passed reference to the newly loaded widget
+                        console.log("Widget / Cam just got loaded.", myObjWidgetCam);
+                        myObjWidgetCam.init();
+                      }
+                    );
+                  }
+                );
+           }, 
         
         /**
          * Load the Console widget via chilipeppr.load()
@@ -1842,6 +1862,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     <div class="col-xs-3 nopadding">
                         <!-- XYZ -->
                         <div id="com-chilipeppr-xyz" class="">Load XYZ Here</div>
+                        <div id="com-chilipeppr-widget-camera-instance">
+                        <p class="sample">Camera widget goes here</p>
+                        </div>
                         <!-- Tinyg -->
                         <div id="com-chilipeppr-tinyg" class="">Load TinyG Here</div>
                         <!-- WebRTC Client -->
