@@ -1324,7 +1324,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             );
 
             // WebRTC Client com-chilipeppr-webrtcclient
-            /*
+            
             chilipeppr.load(
                 "com-chilipeppr-webrtcclient",
                 "http://fiddle.jshell.net/chilipeppr/qWj4f/show/light/",
@@ -1337,7 +1337,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     webrtcclient.init();
                 });
             }); //End WebRTC Client
-            */
+            
 
             /* For testing. Load RPM Sensor */
             // com-chilipeppr-ws-rpmsensor
