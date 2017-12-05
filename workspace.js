@@ -170,18 +170,17 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             );
         },
         
-        
-        loadCameraWidget: function(callback) {
-
-            var that = this;
-            chilipeppr.load(
-                "#com-chilipeppr-widget-camera-instance",
+           
+         loadCameraWidget: function(callback) {
+             
+                 chilipeppr.load(
+                  "#com-chilipeppr-widget-camera-instance",
                   "http://raw.githubusercontent.com/chilipeppr/widget-cam/master/auto-generated-widget.html",
                   function() {
                     // Callback after widget loaded into #myDivWidgetCam
                     // Now use require.js to get reference to instantiated widget
                     cprequire(
-                      ["inline:com-chilipeppr-widget-camera"], // the id you gave your widget
+                      ["inline:com-chilipeppr-widget-cam"], // the id you gave your widget
                       function(myObjWidgetCam) {
                         // Callback that is passed reference to the newly loaded widget
                         console.log("Widget / Cam just got loaded.", myObjWidgetCam);
@@ -189,8 +188,8 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                       }
                     );
                   }
-                );
-           }, 
+               );
+           },     
         
         /**
          * Load the Console widget via chilipeppr.load()
