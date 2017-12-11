@@ -81,7 +81,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             
             //this.loadwebrtcclientWidget();
             
-            this.loadCameraWidget();
+           // this.loadCameraWidget();
             
             // This is a huge method that was built from the original jsfiddle workspace
             // we should technically put each widget in its own method for loading
@@ -170,7 +170,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             );
         },
         
-           
+         /**  
          loadCameraWidget: function(callback) {
              
                  chilipeppr.load(
@@ -190,6 +190,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                   }
                );
            },     
+        */
         
         /**
          * Load the Console widget via chilipeppr.load()
