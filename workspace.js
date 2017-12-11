@@ -79,7 +79,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             // Most workspaces will instantiate the Serial Port Console widget
             this.loadConsoleWidget();
             
-            this.loadspindleControlWidget();
+            this.loadspindlecontrolWidget();
             //this.loadwebrtcclientWidget();
             
            // this.loadCameraWidget();
@@ -171,7 +171,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             );
         },
         
-         loadspindleControlWidget: function(callback) {
+         loadspindlecontrolWidget: function(callback) {
 
             var that = this;
 
