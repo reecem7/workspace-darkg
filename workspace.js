@@ -79,6 +79,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             // Most workspaces will instantiate the Serial Port Console widget
             this.loadConsoleWidget();
             
+            this.loadspindleControlWidget();
             //this.loadwebrtcclientWidget();
             
            // this.loadCameraWidget();
@@ -169,6 +170,29 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
+        
+         loadspindleControlWidget: function(callback) {
+
+            var that = this;
+
+            chilipeppr.load(
+                "#com-chilipeppr-widget-spindlecontrol",
+                 "http://raw.githubusercontent.com/reecem7/widget-spindlecontrol/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetSpindlecontrol
+                // Now use require.js to get reference to instantiated widget
+            cprequire(
+              ["inline:com-chilipeppr-widget-spindlecontrol"], // the id you gave your widget
+              function(myObjWidgetSpindlecontrol) {
+                // Callback that is passed reference to the newly loaded widget
+                console.log("Widget / spindlecontrol just got loaded.", myObjWidgetSpindlecontrol);
+                myObjWidgetSpindlecontrol.init();
+                    });
+                }
+            );
+        },
+        
+        
         
          /**  
          loadCameraWidget: function(callback) {
