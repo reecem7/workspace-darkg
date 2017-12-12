@@ -82,7 +82,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             this.loadspindlecontrolWidget();
             //this.loadwebrtcclientWidget();
             
-             this.loadCameraWidget();
+            this.loadcamoctopiWidget();
             
             // This is a huge method that was built from the original jsfiddle workspace
             // we should technically put each widget in its own method for loading
@@ -192,7 +192,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             );
         },
    
-   loadCameraWidget: function(callback) {     
+   loadcamoctopiWidget: function(callback) {     
         chilipeppr.load(
           "#com-chilipeppr-widget-cam-octopi",
           "http://raw.githubusercontent.com/reecem7/widget-cam-octopi/master/auto-generated-widget.html",
