@@ -191,8 +191,25 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
-        
-        
+   
+   loadCameraWidget: function(callback) {     
+        chilipeppr.load(
+          "#com-chilipeppr-widget-cam-octopi",
+          "http://raw.githubusercontent.com/reecem7/widget-cam-octopi/master/auto-generated-widget.html",
+          function() {
+            // Callback after widget loaded into #myDivWidgetCamOctopi
+            // Now use require.js to get reference to instantiated widget
+            cprequire(
+              ["inline:com-chilipeppr-widget-cam-octopi"], // the id you gave your widget
+              function(myObjWidgetCamOctopi) {
+                // Callback that is passed reference to the newly loaded widget
+                console.log("Widget / Cam just got loaded.", myObjWidgetCamOctopi);
+                myObjWidgetCamOctopi.init();
+              }
+            );
+          }
+        );
+   },
         
          /**  
          loadCameraWidget: function(callback) {
