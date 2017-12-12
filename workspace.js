@@ -1287,30 +1287,6 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     );
                 }
             ); //End Serial Port Console Log Window
-
-            /*
-            // XYZ
-            // http://jsfiddle.net/chilipeppr/gh45j/
-            chilipeppr.load(
-                "com-chilipeppr-xyz",
-                // Lauer's new widget 8/16/15
-                "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html", 
-                // Temporary widget from Danal
-                //"http://fiddle.jshell.net/Danal/vktco1y6/show/light/", 
-                // Lauer's original core widget
-                //"http://fiddle.jshell.net/chilipeppr/gh45j/show/light/",
-        
-                function () {
-                    cprequire(
-                    ["inline:com-chilipeppr-widget-xyz"],
-            
-                    function (xyz) {
-                        xyz.init();
-                        xyz.toggleWcs();
-                    });
-                }
-            ); //End XYZ
-            */
             
             //new XYZ widget attempt - dec11
             // http://jsfiddle.net/chilipeppr/gh45j/
