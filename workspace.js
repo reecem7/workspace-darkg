@@ -1288,7 +1288,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             ); //End Serial Port Console Log Window
 
-
+            /*
             // XYZ
             // http://jsfiddle.net/chilipeppr/gh45j/
             chilipeppr.load(
@@ -1310,6 +1310,24 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     });
                 }
             ); //End XYZ
+            */
+            //new XYZ widget attempt - dec11
+            chilipeppr.load(
+                  "#com-chilipeppr-xyz",
+                  "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html",
+                  function() {
+                    // Callback after widget loaded into #myDivWidgetXyz
+                    // Now use require.js to get reference to instantiated widget
+                    cprequire(
+                      ["inline:com-chilipeppr-widget-xyz"], // the id you gave your widget
+                      function(myObjWidgetXyz) {
+                        // Callback that is passed reference to the newly loaded widget
+                        console.log("Widget / XYZ Axes v2 just got loaded.", myObjWidgetXyz);
+                        myObjWidgetXyz.init();
+                      }
+                    );
+                  }
+                );
             
             // TinyG
             // http://jsfiddle.net/chilipeppr/XxEBZ/
