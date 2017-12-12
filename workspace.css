@@ -201,9 +201,21 @@ body.hover {
     padding: 4px 10px 10px 10px;
     background-color: rgba(255, 255, 255, 0.5);
 }
-#com-chilipeppr-widget-xyz-body .com-chilipeppr-xyz-label-well, #com-chilipeppr-widget-xyz-ftr .btn {
-    background-color: #232323 !important;
+#com-chilipeppr-widget-xyz-body .com-chilipeppr-xyz-label-well,
+    
+#com-chilipeppr-widget-xyz-ftr .btn {
+    background-color: #232323 !important; 
+     
+    /*#232323 */
 }
+/* added this to try to fix color 
+.com-chilipeppr-xyz-pos {
+    background-color: #FFFFFF;
+    padding:0 0 0 0px;
+    margin:0;
+}
+*/    
+    
 .navbar-brand.main-brand>img {
     display: inline;
 }
