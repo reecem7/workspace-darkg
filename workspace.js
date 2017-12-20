@@ -1308,7 +1308,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             //new XYZ widget attempt - dec11
             // http://jsfiddle.net/chilipeppr/gh45j/
             chilipeppr.load(
-                "com-chilipeppr-xyz",
+                "#com-chilipeppr-xyz",
                 // Lauer's new widget 8/16/15
                 "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html", 
                 // Temporary widget from Danal
@@ -1325,6 +1325,23 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     });
                 }
             ); //End XYZ
+            
+            chilipeppr.load(
+              "#com-chilipeppr-axes2",
+              "http://raw.githubusercontent.com/reecem7/widget-axes2/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetAxes2
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-axes2"], // the id you gave your widget
+                  function(myObjWidgetAxes2) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / XYZ Axes v2 just got loaded.", myObjWidgetAxes2);
+                    myObjWidgetAxes2.init();
+                  }
+                );
+              }
+            );
             
             // TinyG
             // http://jsfiddle.net/chilipeppr/XxEBZ/

@@ -209,14 +209,15 @@ body.hover {
     padding: 4px 10px 10px 10px;
     background-color: rgba(255, 255, 255, 0.5);
 }
+/*
 #com-chilipeppr-widget-xyz-body .com-chilipeppr-xyz-label-well,
     
 #com-chilipeppr-widget-xyz-ftr .btn {
     background-color: #232323 !important; 
      
-    /*#232323 */
+    /*#232323 
 }
-
+/*
 #com-chilipeppr-xyz-pos {
     background-color: white;
     color: white;
@@ -230,16 +231,23 @@ body.hover {
     color: white;
     
 }
-#com-chilipeppr-xyz.xyz-dimmed{
+#com-chilipeppr-xyz.xyz-dimmed .xyz-negpos{
     color:red;
     background-color: red;
 }
-
-.xyz-negpos .xyz-dimmed {
-    color: red;
-    background-color: red; 
+.com-chilipeppr-widget-xyz-buttonarray>table {
+    background-color: transparent;
 }
-#well com-chilipeppr-xyz-well com-chilipeppr-xyz-pos-well flatbottom
+*/
+/*
+.com-chilipeppr-xyz-pos-well>input {
+    background-color: #555555 !important;
+}
+/*
+#com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-well {
+    background-color: #232323 !important; /* DRO Background
+}
+*/
 
 /* added this to try to fix color 
 .com-chilipeppr-xyz-pos {
@@ -252,9 +260,8 @@ body.hover {
 .navbar-brand.main-brand>img {
     display: inline;
 }
-.com-chilipeppr-widget-xyz-buttonarray>table {
-    background-color: transparent;
-}
+
+
 #com-chilipeppr-ws-gcode-hdr {
     background-color: #232323  /*og #232323*/
 }
@@ -289,12 +296,6 @@ body.hover {
 }
 .form-control {
     background-color: transparent !important;
-}
-.com-chilipeppr-xyz-pos-well>input {
-    background-color: #555555 !important;
-}
-#com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-well {
-    background-color: #232323 !important; /* DRO Background*/
 }
 
 .gcode-sent {

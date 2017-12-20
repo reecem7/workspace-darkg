@@ -225,14 +225,15 @@ body.hover {
     padding: 4px 10px 10px 10px;
     background-color: rgba(255, 255, 255, 0.5);
 }
+/*
 #com-chilipeppr-widget-xyz-body .com-chilipeppr-xyz-label-well,
     
 #com-chilipeppr-widget-xyz-ftr .btn {
     background-color: #232323 !important; 
      
-    /*#232323 */
+    /*#232323 
 }
-
+/*
 #com-chilipeppr-xyz-pos {
     background-color: white;
     color: white;
@@ -246,16 +247,23 @@ body.hover {
     color: white;
     
 }
-#com-chilipeppr-xyz.xyz-dimmed{
+#com-chilipeppr-xyz.xyz-dimmed .xyz-negpos{
     color:red;
     background-color: red;
 }
-
-.xyz-negpos .xyz-dimmed {
-    color: red;
-    background-color: red; 
+.com-chilipeppr-widget-xyz-buttonarray>table {
+    background-color: transparent;
 }
-#well com-chilipeppr-xyz-well com-chilipeppr-xyz-pos-well flatbottom
+*/
+/*
+.com-chilipeppr-xyz-pos-well>input {
+    background-color: #555555 !important;
+}
+/*
+#com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-well {
+    background-color: #232323 !important; /* DRO Background
+}
+*/
 
 /* added this to try to fix color 
 .com-chilipeppr-xyz-pos {
@@ -268,9 +276,8 @@ body.hover {
 .navbar-brand.main-brand>img {
     display: inline;
 }
-.com-chilipeppr-widget-xyz-buttonarray>table {
-    background-color: transparent;
-}
+
+
 #com-chilipeppr-ws-gcode-hdr {
     background-color: #232323  /*og #232323*/
 }
@@ -305,12 +312,6 @@ body.hover {
 }
 .form-control {
     background-color: transparent !important;
-}
-.com-chilipeppr-xyz-pos-well>input {
-    background-color: #555555 !important;
-}
-#com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-well {
-    background-color: #232323 !important; /* DRO Background*/
 }
 
 .gcode-sent {
@@ -1673,7 +1674,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             //new XYZ widget attempt - dec11
             // http://jsfiddle.net/chilipeppr/gh45j/
             chilipeppr.load(
-                "com-chilipeppr-xyz",
+                "#com-chilipeppr-xyz",
                 // Lauer's new widget 8/16/15
                 "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html", 
                 // Temporary widget from Danal
@@ -1690,6 +1691,23 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     });
                 }
             ); //End XYZ
+            
+            chilipeppr.load(
+              "#com-chilipeppr-axes2",
+              "http://raw.githubusercontent.com/reecem7/widget-axes2/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetAxes2
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-axes2"], // the id you gave your widget
+                  function(myObjWidgetAxes2) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / XYZ Axes v2 just got loaded.", myObjWidgetAxes2);
+                    myObjWidgetAxes2.init();
+                  }
+                );
+              }
+            );
             
             // TinyG
             // http://jsfiddle.net/chilipeppr/XxEBZ/
@@ -1957,6 +1975,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     <div class="col-xs-3 nopadding">
                         <!-- XYZ -->
                         <div id="com-chilipeppr-xyz" class="">Load XYZ Here</div>
+                        <div id="com-chilipeppr-axes2" class="">Load XYZ Here</div>
                         <!-- Spindle Control -->
                         <div id="com-chilipeppr-widget-spindlecontrol" class="">Load Spindle Control here</div>
                         <!--
