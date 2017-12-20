@@ -232,13 +232,13 @@ body.hover {
 
 }
 .col-xs-9{
+background-color: transparent;
 
     
 }
 #com-chilipeppr-widget-xyz-body .xyz-dimmed {
     color: black;
-
-    
+    background-color: transparent;
 }
 
 
@@ -251,20 +251,23 @@ body.hover {
 .com-chilipeppr-xyz-pos-well>input {
     background-color: #555555 !important;
 }
-#com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-pos {
-    background-color: #232323;
+#com-chilipeppr-widget-xyz-machinecoords .container-fluid {
+    background-color: transparent;
 
 }
 
-#com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-well {
-    background-color: #232323 !important; /* DRO Background*/
-    
+#com-chilipeppr-widget-xyz-machinecoords .well{
+    background-color: black !important; /* DRO Background*/
+     
 }
-#com-chilipeppr-widget-xyz-machinecoords .xyz-dimmed {
+#com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-pos, .xyz-dimmed, .xyz-negpos {
    color: black !important;/* DRO Background*/
-   background-color: #232323;
+   background-color:black; 
 }
 
+#com-chilipeppr-widget-xyz-machinecoords   {
+    background-color: transparent ; 
+}
 
 /* added this to try to fix color 
 .com-chilipeppr-xyz-pos {
@@ -360,3 +363,4 @@ body.hover {
 .com-chilipeppr-widget-gcodeviewer-coords .coords-axis {
     background-color: #9933cc !important;
 }
+
