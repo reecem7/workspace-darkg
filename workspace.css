@@ -112,7 +112,7 @@
     float:left;
 }
 #com-chilipeppr-gcode-list {
-  /* background-color: white;
+   background-color: transparent;
     /* padding-right: 10px; */
     /* z-index:5; */
     /* position: relative; */
@@ -304,6 +304,7 @@ body.hover {
 }
 #com-chilipeppr-widget-gcode-body-2col {
     width: 100%;
+    
 }
 
 
