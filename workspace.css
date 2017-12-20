@@ -225,13 +225,14 @@ body.hover {
 
 }
 .col-xs-9{
-  
+
     
 }
-.xyz-dimmed {
-    color:black;
-
+#com-chilipeppr-widget-xyz-body .xyz-dimmed {
+    color: black;
+    
 }
+
 .xyz-negpos {
     color: red;
 }
@@ -246,6 +247,9 @@ body.hover {
 
 #com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-well {
     background-color: #232323 !important; /* DRO Background*/
+}
+#com-chilipeppr-widget-xyz-machinecoords .xyz-dimmed {
+   color: black !important; /* DRO Background*/
 }
 
 

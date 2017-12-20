@@ -241,13 +241,14 @@ body.hover {
 
 }
 .col-xs-9{
-  
+
     
 }
-.xyz-dimmed {
-    color:black;
-
+#com-chilipeppr-widget-xyz-body .xyz-dimmed {
+    color: black;
+    
 }
+
 .xyz-negpos {
     color: red;
 }
@@ -262,6 +263,9 @@ body.hover {
 
 #com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-well {
     background-color: #232323 !important; /* DRO Background*/
+}
+#com-chilipeppr-widget-xyz-machinecoords .xyz-dimmed {
+   color: black !important; /* DRO Background*/
 }
 
 
@@ -1975,7 +1979,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     <div class="col-xs-3 nopadding">
                         <!-- XYZ -->
                         <div id="com-chilipeppr-xyz" class="">Load XYZ Here</div>
-                        <div id="com-chilipeppr-axes2" class="">Load XYZ Here</div>
+                       <!-- <div id="com-chilipeppr-axes2" class="">Load XYZ Here</div>-->
                         <!-- Spindle Control -->
                         <div id="com-chilipeppr-widget-spindlecontrol" class="">Load Spindle Control here</div>
                         <!--
