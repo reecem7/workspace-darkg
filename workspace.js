@@ -80,7 +80,8 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             this.loadConsoleWidget();
             
             this.loadspindlecontrolWidget();
-            //this.loadwebrtcclientWidget();
+           
+            this.loadvoicecontrolWidget();
             
             this.loadcamoctopiWidget();
             
@@ -191,6 +192,27 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
+        
+          loadvoicecontrolWidget: function(callback) {
+            chilipeppr.load(
+              "#com-chilipeppr-widget-voicecontrol",
+              "http://raw.githubusercontent.com/reecem7/widget-CNCVoiceControl/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetCNCVoiceControl
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-CNCVoiceControl"], // the id you gave your widget
+                  function(myObjWidgetCNCVoiceControl) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / spindlecontrol just got loaded.", myObjWidgetCNCVoiceControl);
+                    myObjWidgetCNCVoiceControl.init();
+                  }
+                );
+              }
+            );
+                      
+        },
+        
    
    loadcamoctopiWidget: function(callback) {     
         chilipeppr.load(
