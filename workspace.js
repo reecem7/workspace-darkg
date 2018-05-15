@@ -81,7 +81,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
 
             this.loadspindlecontrolWidget();
 
-            this.loadvoicecontrolWidget();
+            // this.loadvoicecontrolWidget();
 
             this.loadcamoctopiWidget();
 
