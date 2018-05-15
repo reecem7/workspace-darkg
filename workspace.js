@@ -4,7 +4,7 @@ cprequire_test(["inline:com-chilipeppr-workspace-darkg"], function(ws) {
     console.log("initting workspace");
 
     /**
-     * The Root workspace (when you see the ChiliPeppr Header) auto Loads the Flash 
+     * The Root workspace (when you see the ChiliPeppr Header) auto Loads the Flash
      * Widget so we can show the 3 second flash messages. However, in test mode we
      * like to see them as well, so just load it from the cprequire_test() method
      * so we have similar functionality when testing this workspace.
@@ -70,28 +70,28 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
          */
         init: function() {
             $('link[href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"]').attr('href','//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css');
-            
+
             this.loadTabletMode();
 
             // Most workspaces will instantiate the Serial Port JSON Server widget
             this.loadSpjsWidget();
-            
+
             // Most workspaces will instantiate the Serial Port Console widget
             this.loadConsoleWidget();
-            
+
             this.loadspindlecontrolWidget();
-           
+
             this.loadvoicecontrolWidget();
-            
+
             this.loadcamoctopiWidget();
-            
+
             // This is a huge method that was built from the original jsfiddle workspace
             // we should technically put each widget in its own method for loading
             this.loadWidgets();
 
             // Create our workspace upper right corner triangle menu
             this.loadWorkspaceMenu();
-            
+
             // Add our billboard to the menu (has name, url, picture of workspace)
             this.addBillboardToWorkspaceMenu();
 
@@ -100,7 +100,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             // the height of the browser window. You could turn this off and
             // just set widget min-height in CSS instead
             this.setupResize();
-            
+
             setTimeout(function() {
                 $(window).trigger('resize');
             }, 3000);
@@ -171,7 +171,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
-        
+
          loadspindlecontrolWidget: function(callback) {
 
             var that = this;
@@ -192,29 +192,29 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
-        
-          loadvoicecontrolWidget: function(callback) {
-            chilipeppr.load(
-              "#com-chilipeppr-widget-voicecontrol",
-              "http://raw.githubusercontent.com/reecem7/widget-CNCVoiceControl/master/auto-generated-widget.html",
-              function() {
-                // Callback after widget loaded into #myDivWidgetCNCVoiceControl
-                // Now use require.js to get reference to instantiated widget
-                cprequire(
-                  ["inline:com-chilipeppr-widget-CNCVoiceControl"], // the id you gave your widget
-                  function(myObjWidgetCNCVoiceControl) {
-                    // Callback that is passed reference to the newly loaded widget
-                    console.log("Widget / spindlecontrol just got loaded.", myObjWidgetCNCVoiceControl);
-                    myObjWidgetCNCVoiceControl.init();
-                  }
-                );
-              }
-            );
-                      
-        },
-        
-   
-   loadcamoctopiWidget: function(callback) {     
+
+        //   loadvoicecontrolWidget: function(callback) {
+        //     chilipeppr.load(
+        //       "#com-chilipeppr-widget-voicecontrol",
+        //       "http://raw.githubusercontent.com/reecem7/widget-CNCVoiceControl/master/auto-generated-widget.html",
+        //       function() {
+        //         // Callback after widget loaded into #myDivWidgetCNCVoiceControl
+        //         // Now use require.js to get reference to instantiated widget
+        //         cprequire(
+        //           ["inline:com-chilipeppr-widget-CNCVoiceControl"], // the id you gave your widget
+        //           function(myObjWidgetCNCVoiceControl) {
+        //             // Callback that is passed reference to the newly loaded widget
+        //             console.log("Widget / spindlecontrol just got loaded.", myObjWidgetCNCVoiceControl);
+        //             myObjWidgetCNCVoiceControl.init();
+        //           }
+        //         );
+        //       }
+        //     );
+        //
+        // },
+
+
+   loadcamoctopiWidget: function(callback) {
         chilipeppr.load(
           "#com-chilipeppr-widget-cam-octopi",
           "http://raw.githubusercontent.com/reecem7/widget-cam-octopi/master/auto-generated-widget.html",
@@ -232,10 +232,10 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
           }
         );
    },
-        
-         /**  
+
+         /**
          loadCameraWidget: function(callback) {
-             
+
                  chilipeppr.load(
                   "#com-chilipeppr-widget-camera-instance",
                   "http://raw.githubusercontent.com/chilipeppr/widget-cam/master/auto-generated-widget.html",
@@ -252,9 +252,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     );
                   }
                );
-           },     
+           },
         */
-        
+
         /**
          * Load the Console widget via chilipeppr.load()
          */
@@ -312,7 +312,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
-        
+
         loadTabletMode: function(callback) {
             $('#com-chilipeppr-3dviewer').parent().closest('div').addClass('tabmodecol');
             $('#com-chilipeppr-xyz').parent().closest('div').addClass('tabmodecol');
@@ -335,7 +335,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
 
 
         loadWidgets: function(callback) {
-            
+
             // create a workspace object reference to this so inside the anonymous functions below
             // the workspace can be referred to
             var wsObj = this;
@@ -350,11 +350,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     instance: null,
                     init: function() {
                         this.btn.click(this.toggle.bind(this));
-                        
+
                         // do NOT dynamically load this one since it has a pubsub that's key to get called
-                        // and in future may register for drag/drop events for .txt files  
+                        // and in future may register for drag/drop events for .txt files
                         this.load();
-                        
+
                         // we need to subscribe to the /didDrop signal of this widget so we know to show it
                         //chilipeppr.subscribe("/" + this.id + "/didDrop", this, this.show);
                         console.log("done instantiating " + this.name + " add-on widget");
@@ -394,9 +394,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     show: function() {
                         this.div.removeClass("hidden");
                         this.btn.addClass("active");
-    
+
                         console.log("got show for " + this.name + ", this:", this, "wsObj:", wsObj);
-                        
+
                         // see if instantiated already
                         // if so, just activate
                         if (this.instance != null) {
@@ -407,16 +407,16 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         else {
                             // otherwise, dynamic load
                             console.log(this.name + " appears to not be instantiated, let us load it from scratch")
-                            
+
                         }
                         $(window).trigger('resize');
                     },
                     hide: function() {
                         this.div.addClass("hidden");
                         this.btn.removeClass("active");
-                        
+
                         console.log("got hide for " + this.name + ". this:", this, "wsObj:", wsObj);
-                        
+
                         if (this.instance != null) {
                             this.instance.unactivate();
                         }
@@ -437,10 +437,10 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     instance: null,
                     init: function() {
                         this.btn.click(this.toggle.bind(this));
-                        
-                        // do NOT dynamically load this one since it registers for drag/drop events for .svg files  
+
+                        // do NOT dynamically load this one since it registers for drag/drop events for .svg files
                         this.load();
-                        
+
                         // we need to subscribe to the /didDrop signal of this widget so we know to show it
                         chilipeppr.subscribe("/" + this.id + "/didDrop", this, this.show);
                         console.log("done instantiating " + this.name + " add-on widget");
@@ -480,9 +480,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     show: function() {
                         this.div.removeClass("hidden");
                         this.btn.addClass("active");
-    
+
                         console.log("got show for " + this.name + ", this:", this, "wsObj:", wsObj);
-                        
+
                         // see if instantiated already
                         // if so, just activate
                         if (this.instance != null) {
@@ -493,16 +493,16 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         else {
                             // otherwise, dynamic load
                             console.log(this.name + " appears to not be instantiated, let us load it from scratch")
-                            
+
                         }
                         $(window).trigger('resize');
                     },
                     hide: function() {
                         this.div.addClass("hidden");
                         this.btn.removeClass("active");
-                        
+
                         console.log("got hide for " + this.name + ". this:", this, "wsObj:", wsObj);
-                        
+
                         if (this.instance != null) {
                             this.instance.unactivate();
                         }
@@ -512,7 +512,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             }();
             this.svg2gcodeObj.init();
             //End SVG2Gcode
-            
+
             // Inject the Font2Gcode widget
             /*
             $('<div class="zhigh" id="com-chilipeppr-ws-font2gcode"></div>')
@@ -593,7 +593,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     this.zipwhipRecvTextBtn.addClass("active");
 
                     console.log("got showzipwhipRecvText. this:", this, "wsObj:", wsObj);
-                    
+
                     // see if instantiated already
                     // if so, just activate
                     if (this.zipwhipRecvTextInstance != null) {
@@ -629,9 +629,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 hidezipwhipRecvText: function() {
                     this.zipwhipRecvTextDiv.addClass("hidden");
                     this.zipwhipRecvTextBtn.removeClass("active");
-                    
+
                     console.log("got hidezipwhipRecvText. this:", this, "wsObj:", wsObj);
-                    
+
                     if (this.zipwhipRecvTextInstance != null) {
                         this.zipwhipRecvTextInstance.unactivateWidget();
                     }
@@ -640,7 +640,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             };
             wsObj.zipwhipRecvTextObj.init();
             //End Zipwhip Receive Text
-            
+
             // Auto-Leveller
             // com-chilipeppr-ws-autolevel
             chilipeppr.load(
@@ -727,8 +727,8 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         });
                     });
                 }); //End JSCut
-                
-            
+
+
             // Laser Solder
             // com-chilipeppr-ws-jscut
             chilipeppr.load(
@@ -758,7 +758,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         });
                     });
                 }); //End Laser Solder
-                
+
 
             // Eagle BRD Import
             // com-chilipeppr-widget-eagle
@@ -766,7 +766,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             // Setup drag/drop for BRD files on our own because we don't
             // want to instantiate the Eagle BRD codebase (i.e. load its massive
             // javascript files) until the user try requests that we do
-            this.eagleObj = function() { 
+            this.eagleObj = function() {
                 return {
                     eagleBtn: null,
                     eagleDiv: null,
@@ -793,7 +793,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     showEagle: function(callback) {
                         this.eagleDiv.removeClass("hidden");
                         this.eagleBtn.addClass("active");
-    
+
                         // see if instantiated already
                         // if so, just activate
                         if (this.eagleInstance != null) {
@@ -805,7 +805,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                             var that = this;
                             chilipeppr.load(
                                 "#com-chilipeppr-ws-eagle",
-                                //"http://fiddle.jshell.net/chilipeppr/3fe23xsr/show/light/", 
+                                //"http://fiddle.jshell.net/chilipeppr/3fe23xsr/show/light/",
                                 "http://raw.githubusercontent.com/chilipeppr/widget-eagle/master/auto-generated-widget.html",
                                 function() {
                                     require(["inline:com-chilipeppr-widget-eagle"], function(eagle) {
@@ -840,7 +840,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         // we have the data
                         // double check it's a board file, cuz it could be gcode
                         if (data.match(/<!DOCTYPE eagle SYSTEM "eagle.dtd">/i)) {
-    
+
                             // check that there's a board tag
                             if (data.match(/<board>/i)) {
                                 console.log("we have an eagle board file!");
@@ -851,7 +851,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                     that.eagleInstance.open(data, info);
                                 });
                                 console.log("opened brd file");
-    
+
                                 // do NOT store a lastDropped, rather we should
                                 // get told from the workspace what the last file
                                 // was and if it was a BRD file we should auto-open
@@ -865,7 +865,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                 console.log("looks like it is an eagle generated file, but not a board file. sad.");
                                 chilipeppr.publish('/com-chilipeppr-elem-flashmsg/flashmsg', "Looks like you dragged in an Eagle CAD file, but it contains no board tag. You may have dragged in a schematic instead. Please retry with a valid board file.");
                             }
-    
+
                             // now, we need to return false so no other widgets see this
                             // drag/drop event because they won't know how to handle
                             // an Eagle Brd file
@@ -892,8 +892,8 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         $('#com-chilipeppr-widget-eagle').removeClass("panel-primary");
                         $('#com-chilipeppr-ws-menu .eagle-button').removeClass("btn-primary");
                     },
-                }; 
-                
+                };
+
             }();
             console.log("eagleObj:", this.eagleObj);
             this.eagleObj.init();
@@ -968,7 +968,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             //End GPIO
 
             // SuttleXpress
-            // Dynamically load the ShuttleXpress Widget. i.e. wait til user clicks on 
+            // Dynamically load the ShuttleXpress Widget. i.e. wait til user clicks on
             // the button first time.
             // uses generic object so can cut/paste easier for others (or create actual object)
             // lordmundi/btyfqk7w
@@ -1041,7 +1041,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             //End ShuttleXpress
 
             // Touch Plate
-            // Dynamically load the Touch Plate widget, i.e. wait til user clicks on 
+            // Dynamically load the Touch Plate widget, i.e. wait til user clicks on
             // the button first time.
             this.touchPlateObj = function() {
                 return {
@@ -1176,7 +1176,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             }();
             this.superTouchPlateObj.init();
             //End Super Touch Plate
-            
+
             // Arduino / Atmel Firmware Programmer
             // FIDDLE http://jsfiddle.net/chilipeppr/qcduvhkh/11/
             chilipeppr.load(
@@ -1188,9 +1188,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     var btn = $('#com-chilipeppr-ws-menu .programmer-button');
                     var div = $('#com-chilipeppr-ws-programmer');
                     btn.click(programmer.show.bind(programmer));
-                })  
+                })
             );  //End Arduino / Atmel Firmware Programmer
-    
+
             // Element / Drag Drop
             // Load the dragdrop element into workspace toolbar
             // http://jsfiddle.net/chilipeppr/Z9F6G/
@@ -1222,26 +1222,26 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     });
                 }
             ); //End Element / Drag Drop
-            
+
             // 3D Viewer
             // http://jsfiddle.net/chilipeppr/y3HRF
             chilipeppr.load(
                 "#com-chilipeppr-3dviewer",
                 //"http://fiddle.jshell.net/chilipeppr/y3HRF/show/light/",
                 "http://raw.githubusercontent.com/voodoomm/widget-3dviewer/master/auto-generated-widget.html",
-    
+
                 function() {
                     console.log("got callback done loading 3d");
-    
+
                     cprequire(
                         ['inline:com-chilipeppr-widget-3dviewer'],
-    
+
                         function(threed) {
                             console.log("Running 3dviewer");
                             threed.init();
                             console.log("3d viewer initted");
-    
-                            // Ok, do someting whacky. Try to move the 3D Viewer 
+
+                            // Ok, do someting whacky. Try to move the 3D Viewer
                             // Control Panel to the center column
                             setTimeout(function() {
                                 var element = $('#com-chilipeppr-3dviewer .panel-heading').detach();
@@ -1249,7 +1249,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                 $('#com-chilipeppr-widget-3dviewer').addClass("nomargin");
                                 $('#com-chilipeppr-3dviewer-controlpanel').append(element);
                             }, 10);
-    
+
                             // listen to resize events so we can resize our 3d viewer
                             // this was done to solve the scrollbar residue we were seeing
                             // resize this console on a browser resize
@@ -1264,7 +1264,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                     console.log("3d view force resize. 1 sec later");
                                     threed.resize();
                                 }, 1000);
-    
+
                             });
                         }
                     );
@@ -1326,28 +1326,28 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     );
                 }
             ); //End Serial Port Console Log Window
-            
+
             //new XYZ widget attempt - dec11
             // http://jsfiddle.net/chilipeppr/gh45j/
             chilipeppr.load(
                 "#com-chilipeppr-xyz",
                 // Lauer's new widget 8/16/15
-                "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html", 
+                "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html",
                 // Temporary widget from Danal
-                //"http://fiddle.jshell.net/Danal/vktco1y6/show/light/", 
+                //"http://fiddle.jshell.net/Danal/vktco1y6/show/light/",
                 // Lauer's original core widget
                 //"http://fiddle.jshell.net/chilipeppr/gh45j/show/light/",
-        
+
                 function () {
                     cprequire(
                     ["inline:com-chilipeppr-widget-xyz"],
-            
+
                     function (xyz) {
                         xyz.init();
                     });
                 }
             ); //End XYZ
-            
+
             chilipeppr.load(
               "#com-chilipeppr-axes2",
               "http://raw.githubusercontent.com/reecem7/widget-axes2/master/auto-generated-widget.html",
@@ -1364,7 +1364,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 );
               }
             );
-            
+
             // TinyG
             // http://jsfiddle.net/chilipeppr/XxEBZ/
             // com-chilipeppr-tinyg
@@ -1376,11 +1376,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 //"http://fiddle.jshell.net/Danal/6rq2wx3o/show/light/",
                 // Lauer's version
                 //"http://fiddle.jshell.net/chilipeppr/XxEBZ/show/light/",
-        
+
                 function () {
                     cprequire(
                     ["inline:com-chilipeppr-widget-tinyg"],
-            
+
                     function (tinyg) {
                         tinyg.init();
                     });
@@ -1400,11 +1400,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     // Callback that is passed reference to the newly loaded widget
                     console.log("Widget / Cayenn just got loaded.", myObjWidgetCayenn);
                     myObjWidgetCayenn.init();
-                    
+
                     // this widget has a lot of modals that pop up whenever, so we need to make sure the parent div is
                     // not hidden. instead we'll hide the exact widget because the modals are outside the div of the widget
                     $('#com-chilipeppr-ws-cayenn').removeClass("hidden");
-                    
+
                     var btn = $('#com-chilipeppr-ws-menu .cayenn-button');
                     var div = $('#com-chilipeppr-widget-cayenn');
                     div.addClass("hidden");
@@ -1422,30 +1422,30 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                             $(window).trigger('resize');
                         }, 200);
                     });
-                    
+
                   }
                 );
               }
             );
 
             // WebRTC Client com-chilipeppr-webrtcclient
-            
+
             chilipeppr.load(
                 "com-chilipeppr-webrtcclient",
                 "http://fiddle.jshell.net/chilipeppr/qWj4f/show/light/",
-        
+
             function () {
                 cprequire(
                 ["inline:com-chilipeppr-widget-webrtc-client"],
-        
+
                 function (webrtcclient) {
                     webrtcclient.init();
                 });
             }
-        ); 
+        );
         //End WebRTC Client
-            
-          
+
+
             /* For testing. Load RPM Sensor */
             // com-chilipeppr-ws-rpmsensor
             /*
