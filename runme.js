@@ -178,14 +178,14 @@ var testUrlNoSsl = 'http://' + process.env.C9_PROJECT +
 var editUrl = 'http://ide.c9.io/' +
     process.env.C9_USER + '/' +
     process.env.C9_PROJECT;
-var github;
+var github = 'https://github.com/reecem7/workspace-darkg';
 
 var widgetSrc, widget, id, deps, cpdefine, requirejs, cprequire_test;
 var widgetDocs = {};
 
-var init = function() {
-    github = getGithubUrl();
-}
+// var init = function() {
+//     github = getGithubUrl();
+// }
 
 var isEvaled = false;
 var evalWidgetJs = function() {
