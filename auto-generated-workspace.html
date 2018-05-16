@@ -62,7 +62,7 @@
     margin-bottom:10px;
 }
 #com-chilipeppr-ws-gcode-wrapper {
-
+    
 }
 
 #com-chilipeppr-widget-gcode-body {
@@ -203,7 +203,7 @@ body.hover {
     background-size: cover;
 }
 .billboard-imgcontain {
-    border:0px solid red;
+    border:0px solid red; 
     position: relative;
 }
 .billboard-stats {
@@ -226,23 +226,23 @@ body.hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
 #com-chilipeppr-widget-xyz-body .com-chilipeppr-xyz-pos{
-
+     
 }
-
+    
 
 #com-chilipeppr-widget-xyz-body .com-chilipeppr-xyz-label-well{
-        background-color: #232323 !important;
+        background-color: #232323 !important; 
 
 }
-
+    
 #com-chilipeppr-widget-xyz-ftr .btn {
-    background-color: #232323 !important;
-
-    /*#232323*/
+    background-color: #232323 !important; 
+     
+    /*#232323*/ 
 }
 
 #com-chilipeppr-xyz-pos {
-
+   
 }
 #com-chilipeppr-widget-xyz-x {
 
@@ -250,7 +250,7 @@ body.hover {
 .col-xs-9{
 background-color: transparent;
 
-
+    
 }
 #com-chilipeppr-widget-xyz-body .xyz-dimmed {
     color: black;
@@ -274,25 +274,25 @@ background-color: transparent;
 
 #com-chilipeppr-widget-xyz-machinecoords .well{
     background-color: black !important; /* DRO Background*/
-
+     
 }
 #com-chilipeppr-widget-xyz-machinecoords .com-chilipeppr-xyz-pos, .xyz-dimmed, .xyz-negpos {
    color: black !important;/* DRO Background*/
-   background-color:black;
+   background-color:black; 
 }
 
 #com-chilipeppr-widget-xyz-machinecoords   {
-    background-color: transparent ;
+    background-color: transparent ; 
 }
 
-/* added this to try to fix color
+/* added this to try to fix color 
 .com-chilipeppr-xyz-pos {
     background-color: #FFFFFF;
     padding:0 0 0 0px;
     margin:0;
 }
-*/
-
+*/    
+    
 .navbar-brand.main-brand>img {
     display: inline;
 }
@@ -318,7 +318,7 @@ background-color: transparent;
 {
   width: 12px;  /* for vertical scrollbars */
   height: 12px; /* for horizontal scrollbars */
-
+  
 }
 
 ::-webkit-scrollbar-track
@@ -366,7 +366,7 @@ background-color: transparent;
 }
 #com-chilipeppr-widget-gcode-body-2col {
     width: 100%;
-
+    
 }
 
 
@@ -391,7 +391,7 @@ cprequire_test(["inline:com-chilipeppr-workspace-darkg"], function(ws) {
     console.log("initting workspace");
 
     /**
-     * The Root workspace (when you see the ChiliPeppr Header) auto Loads the Flash
+     * The Root workspace (when you see the ChiliPeppr Header) auto Loads the Flash 
      * Widget so we can show the 3 second flash messages. However, in test mode we
      * like to see them as well, so just load it from the cprequire_test() method
      * so we have similar functionality when testing this workspace.
@@ -428,12 +428,10 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
         id: "com-chilipeppr-workspace-darkg", // Make the id the same as the cpdefine id
         name: "Workspace / darkG ", // The descriptive name of your widget.
         desc: `This is a workspace for ChiliPeppr's Hardware Fiddle.`,
-        // url: "http://raw.githubusercontent.com/https://master/auto-generated-workspace.html",
-        url: "http://raw.githubusercontent.com/reecem7/workspace-darkg/master/auto-generated-widget.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
-        fiddleurl: "http://ide.c9.io/undefined/undefined", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
-        // githuburl: "http://github.com/https:/", // The backing github repo
-        githuburl: "https://github.com/reecem7/workspace-darkg", // The backing github repo
-        testurl: "http://undefined-undefined.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
+        url: "http://raw.githubusercontent.com/reecem7/workspace-darkg/master/auto-generated-workspace.html", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
+        fiddleurl: "http://ide.c9.io/reecem7/workspace-darkg", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
+        githuburl: "http://github.com/reecem7/workspace-darkg", // The backing github repo
+        testurl: "http://workspace-darkg-reecem7.c9users.io/workspace.html", // The standalone working widget so can view it working by itself
 
         foreignSubscribe: {
             "/com-chilipeppr-elem-dragdrop/ondragover": "The Chilipeppr drag drop element will publish on channel /com-chilipeppr-elem-dragdrop/ondropped when a file is dropped so we subscribe to it so we can load a Gcode file when the user drags it onto the browser. It also adds a hover class to the bound DOM elem so we can add a CSS to hilite on hover",
@@ -459,28 +457,28 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
          */
         init: function() {
             $('link[href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"]').attr('href','//maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cyborg/bootstrap.min.css');
-
+            
             this.loadTabletMode();
 
             // Most workspaces will instantiate the Serial Port JSON Server widget
             this.loadSpjsWidget();
-
+            
             // Most workspaces will instantiate the Serial Port Console widget
             this.loadConsoleWidget();
-
+            
             this.loadspindlecontrolWidget();
-
-            // this.loadvoicecontrolWidget();
-
+           
+            this.loadvoicecontrolWidget();
+            
             this.loadcamoctopiWidget();
-
+            
             // This is a huge method that was built from the original jsfiddle workspace
             // we should technically put each widget in its own method for loading
             this.loadWidgets();
 
             // Create our workspace upper right corner triangle menu
             this.loadWorkspaceMenu();
-
+            
             // Add our billboard to the menu (has name, url, picture of workspace)
             this.addBillboardToWorkspaceMenu();
 
@@ -489,7 +487,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             // the height of the browser window. You could turn this off and
             // just set widget min-height in CSS instead
             this.setupResize();
-
+            
             setTimeout(function() {
                 $(window).trigger('resize');
             }, 3000);
@@ -560,7 +558,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
-
+        
          loadspindlecontrolWidget: function(callback) {
 
             var that = this;
@@ -581,29 +579,29 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
-
-        //   loadvoicecontrolWidget: function(callback) {
-        //     chilipeppr.load(
-        //       "#com-chilipeppr-widget-voicecontrol",
-        //       "http://raw.githubusercontent.com/reecem7/widget-CNCVoiceControl/master/auto-generated-widget.html",
-        //       function() {
-        //         // Callback after widget loaded into #myDivWidgetCNCVoiceControl
-        //         // Now use require.js to get reference to instantiated widget
-        //         cprequire(
-        //           ["inline:com-chilipeppr-widget-CNCVoiceControl"], // the id you gave your widget
-        //           function(myObjWidgetCNCVoiceControl) {
-        //             // Callback that is passed reference to the newly loaded widget
-        //             console.log("Widget / spindlecontrol just got loaded.", myObjWidgetCNCVoiceControl);
-        //             myObjWidgetCNCVoiceControl.init();
-        //           }
-        //         );
-        //       }
-        //     );
-        //
-        // },
-
-
-   loadcamoctopiWidget: function(callback) {
+        
+          loadvoicecontrolWidget: function(callback) {
+            chilipeppr.load(
+              "#com-chilipeppr-widget-voicecontrol",
+              "http://raw.githubusercontent.com/reecem7/widget-CNCVoiceControl/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetCNCVoiceControl
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-CNCVoiceControl"], // the id you gave your widget
+                  function(myObjWidgetCNCVoiceControl) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / spindlecontrol just got loaded.", myObjWidgetCNCVoiceControl);
+                    myObjWidgetCNCVoiceControl.init();
+                  }
+                );
+              }
+            );
+                      
+        },
+        
+   
+   loadcamoctopiWidget: function(callback) {     
         chilipeppr.load(
           "#com-chilipeppr-widget-cam-octopi",
           "http://raw.githubusercontent.com/reecem7/widget-cam-octopi/master/auto-generated-widget.html",
@@ -621,10 +619,10 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
           }
         );
    },
-
-         /**
+        
+         /**  
          loadCameraWidget: function(callback) {
-
+             
                  chilipeppr.load(
                   "#com-chilipeppr-widget-camera-instance",
                   "http://raw.githubusercontent.com/chilipeppr/widget-cam/master/auto-generated-widget.html",
@@ -641,9 +639,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     );
                   }
                );
-           },
+           },     
         */
-
+        
         /**
          * Load the Console widget via chilipeppr.load()
          */
@@ -701,7 +699,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 }
             );
         },
-
+        
         loadTabletMode: function(callback) {
             $('#com-chilipeppr-3dviewer').parent().closest('div').addClass('tabmodecol');
             $('#com-chilipeppr-xyz').parent().closest('div').addClass('tabmodecol');
@@ -724,7 +722,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
 
 
         loadWidgets: function(callback) {
-
+            
             // create a workspace object reference to this so inside the anonymous functions below
             // the workspace can be referred to
             var wsObj = this;
@@ -739,11 +737,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     instance: null,
                     init: function() {
                         this.btn.click(this.toggle.bind(this));
-
+                        
                         // do NOT dynamically load this one since it has a pubsub that's key to get called
-                        // and in future may register for drag/drop events for .txt files
+                        // and in future may register for drag/drop events for .txt files  
                         this.load();
-
+                        
                         // we need to subscribe to the /didDrop signal of this widget so we know to show it
                         //chilipeppr.subscribe("/" + this.id + "/didDrop", this, this.show);
                         console.log("done instantiating " + this.name + " add-on widget");
@@ -783,9 +781,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     show: function() {
                         this.div.removeClass("hidden");
                         this.btn.addClass("active");
-
+    
                         console.log("got show for " + this.name + ", this:", this, "wsObj:", wsObj);
-
+                        
                         // see if instantiated already
                         // if so, just activate
                         if (this.instance != null) {
@@ -796,16 +794,16 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         else {
                             // otherwise, dynamic load
                             console.log(this.name + " appears to not be instantiated, let us load it from scratch")
-
+                            
                         }
                         $(window).trigger('resize');
                     },
                     hide: function() {
                         this.div.addClass("hidden");
                         this.btn.removeClass("active");
-
+                        
                         console.log("got hide for " + this.name + ". this:", this, "wsObj:", wsObj);
-
+                        
                         if (this.instance != null) {
                             this.instance.unactivate();
                         }
@@ -826,10 +824,10 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     instance: null,
                     init: function() {
                         this.btn.click(this.toggle.bind(this));
-
-                        // do NOT dynamically load this one since it registers for drag/drop events for .svg files
+                        
+                        // do NOT dynamically load this one since it registers for drag/drop events for .svg files  
                         this.load();
-
+                        
                         // we need to subscribe to the /didDrop signal of this widget so we know to show it
                         chilipeppr.subscribe("/" + this.id + "/didDrop", this, this.show);
                         console.log("done instantiating " + this.name + " add-on widget");
@@ -869,9 +867,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     show: function() {
                         this.div.removeClass("hidden");
                         this.btn.addClass("active");
-
+    
                         console.log("got show for " + this.name + ", this:", this, "wsObj:", wsObj);
-
+                        
                         // see if instantiated already
                         // if so, just activate
                         if (this.instance != null) {
@@ -882,16 +880,16 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         else {
                             // otherwise, dynamic load
                             console.log(this.name + " appears to not be instantiated, let us load it from scratch")
-
+                            
                         }
                         $(window).trigger('resize');
                     },
                     hide: function() {
                         this.div.addClass("hidden");
                         this.btn.removeClass("active");
-
+                        
                         console.log("got hide for " + this.name + ". this:", this, "wsObj:", wsObj);
-
+                        
                         if (this.instance != null) {
                             this.instance.unactivate();
                         }
@@ -901,7 +899,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             }();
             this.svg2gcodeObj.init();
             //End SVG2Gcode
-
+            
             // Inject the Font2Gcode widget
             /*
             $('<div class="zhigh" id="com-chilipeppr-ws-font2gcode"></div>')
@@ -982,7 +980,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     this.zipwhipRecvTextBtn.addClass("active");
 
                     console.log("got showzipwhipRecvText. this:", this, "wsObj:", wsObj);
-
+                    
                     // see if instantiated already
                     // if so, just activate
                     if (this.zipwhipRecvTextInstance != null) {
@@ -1018,9 +1016,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 hidezipwhipRecvText: function() {
                     this.zipwhipRecvTextDiv.addClass("hidden");
                     this.zipwhipRecvTextBtn.removeClass("active");
-
+                    
                     console.log("got hidezipwhipRecvText. this:", this, "wsObj:", wsObj);
-
+                    
                     if (this.zipwhipRecvTextInstance != null) {
                         this.zipwhipRecvTextInstance.unactivateWidget();
                     }
@@ -1029,7 +1027,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             };
             wsObj.zipwhipRecvTextObj.init();
             //End Zipwhip Receive Text
-
+            
             // Auto-Leveller
             // com-chilipeppr-ws-autolevel
             chilipeppr.load(
@@ -1116,8 +1114,8 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         });
                     });
                 }); //End JSCut
-
-
+                
+            
             // Laser Solder
             // com-chilipeppr-ws-jscut
             chilipeppr.load(
@@ -1147,7 +1145,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         });
                     });
                 }); //End Laser Solder
-
+                
 
             // Eagle BRD Import
             // com-chilipeppr-widget-eagle
@@ -1155,7 +1153,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             // Setup drag/drop for BRD files on our own because we don't
             // want to instantiate the Eagle BRD codebase (i.e. load its massive
             // javascript files) until the user try requests that we do
-            this.eagleObj = function() {
+            this.eagleObj = function() { 
                 return {
                     eagleBtn: null,
                     eagleDiv: null,
@@ -1182,7 +1180,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     showEagle: function(callback) {
                         this.eagleDiv.removeClass("hidden");
                         this.eagleBtn.addClass("active");
-
+    
                         // see if instantiated already
                         // if so, just activate
                         if (this.eagleInstance != null) {
@@ -1194,7 +1192,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                             var that = this;
                             chilipeppr.load(
                                 "#com-chilipeppr-ws-eagle",
-                                //"http://fiddle.jshell.net/chilipeppr/3fe23xsr/show/light/",
+                                //"http://fiddle.jshell.net/chilipeppr/3fe23xsr/show/light/", 
                                 "http://raw.githubusercontent.com/chilipeppr/widget-eagle/master/auto-generated-widget.html",
                                 function() {
                                     require(["inline:com-chilipeppr-widget-eagle"], function(eagle) {
@@ -1229,7 +1227,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         // we have the data
                         // double check it's a board file, cuz it could be gcode
                         if (data.match(/<!DOCTYPE eagle SYSTEM "eagle.dtd">/i)) {
-
+    
                             // check that there's a board tag
                             if (data.match(/<board>/i)) {
                                 console.log("we have an eagle board file!");
@@ -1240,7 +1238,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                     that.eagleInstance.open(data, info);
                                 });
                                 console.log("opened brd file");
-
+    
                                 // do NOT store a lastDropped, rather we should
                                 // get told from the workspace what the last file
                                 // was and if it was a BRD file we should auto-open
@@ -1254,7 +1252,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                 console.log("looks like it is an eagle generated file, but not a board file. sad.");
                                 chilipeppr.publish('/com-chilipeppr-elem-flashmsg/flashmsg', "Looks like you dragged in an Eagle CAD file, but it contains no board tag. You may have dragged in a schematic instead. Please retry with a valid board file.");
                             }
-
+    
                             // now, we need to return false so no other widgets see this
                             // drag/drop event because they won't know how to handle
                             // an Eagle Brd file
@@ -1281,8 +1279,8 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         $('#com-chilipeppr-widget-eagle').removeClass("panel-primary");
                         $('#com-chilipeppr-ws-menu .eagle-button').removeClass("btn-primary");
                     },
-                };
-
+                }; 
+                
             }();
             console.log("eagleObj:", this.eagleObj);
             this.eagleObj.init();
@@ -1357,7 +1355,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             //End GPIO
 
             // SuttleXpress
-            // Dynamically load the ShuttleXpress Widget. i.e. wait til user clicks on
+            // Dynamically load the ShuttleXpress Widget. i.e. wait til user clicks on 
             // the button first time.
             // uses generic object so can cut/paste easier for others (or create actual object)
             // lordmundi/btyfqk7w
@@ -1430,7 +1428,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             //End ShuttleXpress
 
             // Touch Plate
-            // Dynamically load the Touch Plate widget, i.e. wait til user clicks on
+            // Dynamically load the Touch Plate widget, i.e. wait til user clicks on 
             // the button first time.
             this.touchPlateObj = function() {
                 return {
@@ -1565,7 +1563,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
             }();
             this.superTouchPlateObj.init();
             //End Super Touch Plate
-
+            
             // Arduino / Atmel Firmware Programmer
             // FIDDLE http://jsfiddle.net/chilipeppr/qcduvhkh/11/
             chilipeppr.load(
@@ -1577,9 +1575,9 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     var btn = $('#com-chilipeppr-ws-menu .programmer-button');
                     var div = $('#com-chilipeppr-ws-programmer');
                     btn.click(programmer.show.bind(programmer));
-                })
+                })  
             );  //End Arduino / Atmel Firmware Programmer
-
+    
             // Element / Drag Drop
             // Load the dragdrop element into workspace toolbar
             // http://jsfiddle.net/chilipeppr/Z9F6G/
@@ -1611,26 +1609,26 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     });
                 }
             ); //End Element / Drag Drop
-
+            
             // 3D Viewer
             // http://jsfiddle.net/chilipeppr/y3HRF
             chilipeppr.load(
                 "#com-chilipeppr-3dviewer",
                 //"http://fiddle.jshell.net/chilipeppr/y3HRF/show/light/",
                 "http://raw.githubusercontent.com/voodoomm/widget-3dviewer/master/auto-generated-widget.html",
-
+    
                 function() {
                     console.log("got callback done loading 3d");
-
+    
                     cprequire(
                         ['inline:com-chilipeppr-widget-3dviewer'],
-
+    
                         function(threed) {
                             console.log("Running 3dviewer");
                             threed.init();
                             console.log("3d viewer initted");
-
-                            // Ok, do someting whacky. Try to move the 3D Viewer
+    
+                            // Ok, do someting whacky. Try to move the 3D Viewer 
                             // Control Panel to the center column
                             setTimeout(function() {
                                 var element = $('#com-chilipeppr-3dviewer .panel-heading').detach();
@@ -1638,7 +1636,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                 $('#com-chilipeppr-widget-3dviewer').addClass("nomargin");
                                 $('#com-chilipeppr-3dviewer-controlpanel').append(element);
                             }, 10);
-
+    
                             // listen to resize events so we can resize our 3d viewer
                             // this was done to solve the scrollbar residue we were seeing
                             // resize this console on a browser resize
@@ -1653,7 +1651,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                     console.log("3d view force resize. 1 sec later");
                                     threed.resize();
                                 }, 1000);
-
+    
                             });
                         }
                     );
@@ -1715,28 +1713,28 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     );
                 }
             ); //End Serial Port Console Log Window
-
+            
             //new XYZ widget attempt - dec11
             // http://jsfiddle.net/chilipeppr/gh45j/
             chilipeppr.load(
                 "#com-chilipeppr-xyz",
                 // Lauer's new widget 8/16/15
-                "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html",
+                "http://raw.githubusercontent.com/chilipeppr/widget-axes/master/auto-generated-widget.html", 
                 // Temporary widget from Danal
-                //"http://fiddle.jshell.net/Danal/vktco1y6/show/light/",
+                //"http://fiddle.jshell.net/Danal/vktco1y6/show/light/", 
                 // Lauer's original core widget
                 //"http://fiddle.jshell.net/chilipeppr/gh45j/show/light/",
-
+        
                 function () {
                     cprequire(
                     ["inline:com-chilipeppr-widget-xyz"],
-
+            
                     function (xyz) {
                         xyz.init();
                     });
                 }
             ); //End XYZ
-
+            
             chilipeppr.load(
               "#com-chilipeppr-axes2",
               "http://raw.githubusercontent.com/reecem7/widget-axes2/master/auto-generated-widget.html",
@@ -1753,7 +1751,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 );
               }
             );
-
+            
             // TinyG
             // http://jsfiddle.net/chilipeppr/XxEBZ/
             // com-chilipeppr-tinyg
@@ -1765,11 +1763,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                 //"http://fiddle.jshell.net/Danal/6rq2wx3o/show/light/",
                 // Lauer's version
                 //"http://fiddle.jshell.net/chilipeppr/XxEBZ/show/light/",
-
+        
                 function () {
                     cprequire(
                     ["inline:com-chilipeppr-widget-tinyg"],
-
+            
                     function (tinyg) {
                         tinyg.init();
                     });
@@ -1789,11 +1787,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                     // Callback that is passed reference to the newly loaded widget
                     console.log("Widget / Cayenn just got loaded.", myObjWidgetCayenn);
                     myObjWidgetCayenn.init();
-
+                    
                     // this widget has a lot of modals that pop up whenever, so we need to make sure the parent div is
                     // not hidden. instead we'll hide the exact widget because the modals are outside the div of the widget
                     $('#com-chilipeppr-ws-cayenn').removeClass("hidden");
-
+                    
                     var btn = $('#com-chilipeppr-ws-menu .cayenn-button');
                     var div = $('#com-chilipeppr-widget-cayenn');
                     div.addClass("hidden");
@@ -1811,30 +1809,30 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                             $(window).trigger('resize');
                         }, 200);
                     });
-
+                    
                   }
                 );
               }
             );
 
             // WebRTC Client com-chilipeppr-webrtcclient
-
+            
             chilipeppr.load(
                 "com-chilipeppr-webrtcclient",
                 "http://fiddle.jshell.net/chilipeppr/qWj4f/show/light/",
-
+        
             function () {
                 cprequire(
                 ["inline:com-chilipeppr-widget-webrtc-client"],
-
+        
                 function (webrtcclient) {
                     webrtcclient.init();
                 });
             }
-        );
+        ); 
         //End WebRTC Client
-
-
+            
+          
             /* For testing. Load RPM Sensor */
             // com-chilipeppr-ws-rpmsensor
             /*
@@ -1861,7 +1859,6 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
 
     }
 });
-
     //]]>
     </script>
 
@@ -1884,11 +1881,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         <div id="com-chilipeppr-3dviewer"></div>
                         <!-- Workspace Hdr -->
                         <div id="com-chilipeppr-ws-gcode-hdr" class="com-chilipeppr-ws-hdr zhigh well">
-
+                            
                             <span class="workspace-title">workspace-darkG</span>
-
+                            
                             <div id="com-chilipeppr-ws-menu" class="">
-
+                                
                                 <div class="pull-right">
                                     <div class="dropdown">
                                         <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
@@ -1904,7 +1901,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                 </div>
 
                                 <div id="com-chilipeppr-ws-gcode-dragdrop" xstyle="margin-right:6px;" class="pull-left"></div>
-
+                                
                                 <div class="dropdown pull-left">
                                   <button class="btn btn-xs btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                     Widgets
@@ -1916,7 +1913,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                     <!--<li><a href="#">Something else here</a></li>-->
                                     <!--<li role="separator" class="divider"></li>-->
                                     <!--<li><a href="#">Separated link</a></li>-->
-
+                                    
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default zipwhip-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Get a text sent to you when your CNC job is completed." data-trigger="hover" data-delay="100"><span class="zipwhip"></span>Send Text on Job Done</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default zipwhip-recvtext-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Login to Zipwhip to receive texts and start a CNC job when the text is received." data-trigger="hover" data-delay="100"><span class="zipwhip"></span>Recv Text to Trigger</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default autolevel-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Allows you to auto-level your PCB before milling. Most raw PCB boards have a slight warpage. This widget lets you probe the warpage and then it auto-scales your Gcode to match the warpage so you get very clean/predictable z-positions in your milling job."
@@ -1928,38 +1925,38 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default gpio-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="GPIO Server by Ben Delarre. Allows you to control your GPIO ports on a Raspberry Pi or Beagle Bone Black to toggle on/off hardware components. For example, you could toggle a fan on/off via GPIO."
                                     data-trigger="hover" data-delay="100">GPIO</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default shuttlexpress-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="ShuttleXpress Jog Dial." data-trigger="hover" data-delay="100">ShuttleXpress</button></li>
-
+    
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default touchplate-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Use a touch plate to easily figure out your Z zero of your workpiece and set it." data-trigger="hover"
                                     data-delay="100">Touch Plate</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default superTouchplate-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="XYZ touch plate. Use a touch plate to figure out your X zero, Y zero, and Z zero of your workpiece." data-trigger="hover"
                                     data-delay="100">Super Touch Plate</button></li>
-
+    
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default programmer-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Program your Arduino or Atmel chip directly from ChiliPeppr." data-trigger="hover" data-delay="100">Arduino / Atmel Firmware Uploader</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default svg2gcode-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Import an SVG file to Gcode" data-trigger="hover" data-delay="100">SVG Import</button></li>
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default font2gcode-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Create Gcode from text" data-trigger="hover" data-delay="100">Font2Gcode</button></li>
-
+                                
                                     <li><button type="button" class="btn-ws btn btn-xs btn-default cayenn-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="View your Cayenn devices" data-trigger="hover" data-delay="100">Cayenn Devices</button></li>
-
+                            
                                   </ul>
                                   <button type="button" class="btn btn-xs btn-default tabmode-button" data-container="body" data-toggle="popover" data-placement="auto" data-content="Hide 3d viewer." data-trigger="hover" data-delay="100">Tablet Mode</button>
                                 </div>
-
+                                
                             </div>
 
                         </div>
-
+                        
                         <!-- SVG2Gcode -->
                         <div class="zhigh hidden" id="com-chilipeppr-ws-cayenn"></div>
-
+                        
                         <!-- SVG2Gcode -->
                         <div class="zhigh hidden" id="com-chilipeppr-ws-svg2gcode"></div>
 
                         <!-- Font2Gcode -->
                         <div class="zhigh hidden" id="com-chilipeppr-ws-font2gcode"></div>
-
+                        
                         <!-- Zipwhip Text Messaging -->
                         <div class="zhigh hidden" id="com-chilipeppr-ws-zipwhip"></div>
-
+                        
                         <!-- Zipwhip Text Messaging Receive Text widget -->
                         <div class="zhigh hidden" id="com-chilipeppr-ws-zipwhip-recvtext"></div>
 
@@ -1986,7 +1983,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
 
                         <!-- Touch Plate -->
                         <div class="zhigh hidden" id="com-chilipeppr-ws-touchplate">Touch Plate Here</div>
-
+                        
                         <!-- Super Touch Plate -->
                         <div class="zhigh hidden" id="com-chilipeppr-ws-superTouchplate">Super Touch Plate Here</div>
 
@@ -1998,11 +1995,11 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
 
                         <!-- Gcode List -->
                         <div id="com-chilipeppr-gcode-list" class="zhigh">Load Gcode List Here</div>
-
+    
                         <!-- Serial In/Out Text Log-->
                         <div id="com-chilipeppr-widget-console-instance" class="zhigh">Load Serial Port Console Here</div>
-
-
+                   
+                   
                     </div>
                     <!-- 3D Viewer -->
                     <div class="widget col-xs-6">
@@ -2015,8 +2012,8 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                             </td></tr>
                             </table>
                              </div>
-
-
+                             
+                       
                     </div>
                     <div class="col-xs-3 nopadding">
                         <!-- XYZ -->
@@ -2025,7 +2022,7 @@ cpdefine("inline:com-chilipeppr-workspace-darkg", ["chilipeppr_ready"], function
                         <!-- Spindle Control -->
                         <div id="com-chilipeppr-widget-spindlecontrol" class="">Load Spindle Control here</div>
                         <!-- Voice Control -->
-                        <!-- <div id="com-chilipeppr-widget-voicecontrol" class="">Load voice Control here</div> -->
+                        <div id="com-chilipeppr-widget-voicecontrol" class="">Load voice Control here</div>
                         <!--
                         <div id="com-chilipeppr-widget-cam-octopi">
                         <p class="sample">Camera widget goes here</p>
